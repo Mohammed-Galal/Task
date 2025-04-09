@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import products from "./products.json";
 
-const prevCartItems = window.localStorage.getItem("cart") || [];
+const prevCartItems = window.localStorage.getItem("cart");
 
 const Products = {
     name: "products",
     initialState: {
       data: products,
-      cart: JSON.parse(prevCartItems),
+      cart: prevCartItems ? JSON.parse(prevCartItems) : [],
       show: false,
     },
   },
